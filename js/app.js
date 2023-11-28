@@ -312,7 +312,7 @@ function checkChatRequestCount() {
 const accessToken = localStorage.getItem('access_token');
 if (!accessToken) {
     alert('로그인이 필요합니다.');
-    window.location.href = '/FE/login.html'; // 로그인 페이지의 실제 경로로 변경해야 합니다.
+    window.location.href = 'https://maxkim77.github.io/DRFChatService_FE/Repo/login/index.html'; // 로그인 페이지의 실제 경로로 변경해야 합니다.
 } else {
     fetchUserData(accessToken);
 }

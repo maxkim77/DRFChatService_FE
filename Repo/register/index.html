@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+    .rounded-xl {
+        border-radius: 1rem
+    }
+  </style>
+</head>
+<body>
+  <div class="min-w-screen min-h-screen bg-blue-200 flex items-center justify-center px-5 py-5">
+    <div class="bg-white text-gray-800 rounded-xl shadow-lg overflow-hidden relative flex" style="width:414px;height:736px">
+    <div class="bg-white h-full w-full px-5 pt-6 pb-20 overflow-y-auto">
+        <h1 class="text-2xl font-bold text-center mb-6">Signup</h1>
+        <img src="/FE/img/2.png">
+        <form class="space-y-4" id="registerForm">
+            <div>
+                <label for="registerEmail" class="block text-sm font-medium text-gray-700">Email:</label>
+                <input type="email" id="registerEmail" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div>
+                <label for="registerPassword1" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="registerPassword1" name="password1" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div>
+                <label for="registerPassword2" class="block text-sm font-medium text-gray-700">ConfirmPassword:</label>
+                <input type="password" id="registerPassword2" name="password2" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Signup</button>
+        </form>
+        <p class="mt-4 text-sm text-center">Do you have account already? <a href="/FE/login.html" class="text-indigo-600 hover:text-indigo-500">Login</a></p>
+        
+    </div>
+  </div>
+</div>
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+  <div>
+      <a title="Home" href="home.html" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+          <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
+      </a>
+  </div>
+</div>
+
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('registerEmail').value;
+            const password1 = document.getElementById('registerPassword1').value;
+            const password2 = document.getElementById('registerPassword2').value;
+
+            fetch('http://127.0.0.1:8000/account/join/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password1: password1,
+                    password2: password2,
+                })
+            })
+            .then(response => {
+        if (response.ok) {
+            alert('회원가입 성공');  // 성공 메시지 먼저 표시
+            window.location.href = 'http://127.0.0.1:5500/FE/login.html'; // 로그인 페이지로 리디렉션
+            return response.json();
+        } else {
+            throw new Error('Signup failed');
+        }
+    })
+            
+            .catch(error => {
+                console.error('Signup Error:', error);
+                alert('회원가입 실패');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 function refreshToken() {
     const refreshToken = localStorage.getItem('refresh_token');
 
-    return fetch('http://127.0.0.1:8000/account/token/refresh/', {
+    return fetch('http://3.38.169.241:8000/account/token/refresh/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function checkAuthenticationStatus() {
 
     // 사용자 데이터 가져오기 함수
     function fetchUserData(accessToken) {
-        fetch('http://127.0.0.1:8000/account/mypage/', {
+        fetch('http://3.38.169.241:8000/account/mypage/', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -120,7 +120,7 @@ function sendMessage() {
         const accessToken = localStorage.getItem('access_token');
 
         // Send the message to the backend API with the token in the headers
-        fetch('http://127.0.0.1:8000/api/chat/gpt/', {
+        fetch('http://3.38.169.241:8000/api/chat/gpt/', {
                 method: 'POST',
                 mode: 'cors', 
                 headers: {
@@ -174,7 +174,7 @@ function loadChatHistory() {
     const accessToken = localStorage.getItem('access_token');
     checkChatRequestCount()
     if (accessToken) {
-        fetch('http://127.0.0.1:8000/api/chat/gpt/', {
+        fetch('http://3.38.169.241:8000/api/chat/gpt/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -217,7 +217,7 @@ function startInterview() {
     // Check if the interview topic is not empty
     if (interviewTopic !== "") {
         showLoading();
-        fetch('http://127.0.0.1:8000/api/chat/gpt/', {
+        fetch('http://3.38.169.241:8000/api/chat/gpt/', {
               method: 'POST',
     mode: 'cors', 
                 headers: {
@@ -289,7 +289,7 @@ messageInput.addEventListener("keyup", function(event) {
 
 function checkChatRequestCount() {
     const accessToken = localStorage.getItem('access_token');
-    fetch('http://127.0.0.1:8000/api/chat/gpt/', {
+    fetch('http://3.38.169.241:8000/api/chat/gpt/', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

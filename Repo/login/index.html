@@ -16,21 +16,19 @@
     <div class="bg-white h-full w-full px-5 pt-6 pb-20 overflow-y-auto">
       <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
 
-      <img src = "/FE/img/2.png">
+      <img src = "https://maxkim77.github.io/DRFChatService_FE/img/2.png">
       <br>
       <br>
       <br>
 
       <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="loginForm">
         <div class="mb-4">
-          <!-- 수정된 부분: id와 name 속성 추가 -->
           <label class="block text-gray-700 text-sm font-bold mb-2" for="loginEmail">
             Email
           </label>
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="loginEmail" name="email" type="email" placeholder="Email" required>
         </div>
         <div class="mb-6">
-          <!-- 수정된 부분: id와 name 속성 추가 -->
           <label class="block text-gray-700 text-sm font-bold mb-2" for="loginPassword">
             Password
           </label>
@@ -40,7 +38,7 @@
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Login
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="register.html">
+          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="https://maxkim77.github.io/DRFChatService_FE/Repo/register/index.html">
             Register
           </a>
         </div>
@@ -83,7 +81,7 @@
             .then(data => {
                 localStorage.setItem('access_token', data.access_token);
                 localStorage.setItem('refresh_token', data.refresh_token);
-                window.location.href = 'http://127.0.0.1:5500/FE/index.html'; // 경로는 실제 마이페이지 경로로 변경
+                window.location.href = 'https://maxkim77.github.io/DRFChatService_FE/Repo/service/index.html'; // 경로는 실제 마이페이지 경로로 변경
             })
             .catch(error => {
                 console.error('Login Error:', error);

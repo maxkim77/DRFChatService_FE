@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
   const password = document.getElementById('password').value;
 
   // Send login data to the backend API using Fetch API
-  fetch('http://127.0.0.1:8000/account/user/login/', {
+  fetch('http://3.38.169.241:8000/account/user/login/', {
       method: 'POST',
       mode: 'cors',
       headers: {
